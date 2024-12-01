@@ -1,5 +1,8 @@
 console.log("Hello World!")
 
+let humanScore = 0
+let computerScore = 0
+
 // function that randomly returns rock, paper or scissors, the computer
 function getComputerChoice() {
     //random number is generated and stored in variable 'random'
