@@ -18,5 +18,41 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     let choice = prompt("Enter your turn:\n")
-    return choice
+    return choice.toLowerCase
 }
+
+function playRound(humanChoice, computerChoice) {
+if (humanChoice = "rock") {
+    if (computerChoice = "scissors") {
+        humanScore += 1
+        console.log("You Win! Rock beats Scissors")
+    } else if (computerChoice = "paper") {
+        computerScore += 1
+        console.log("You Lose! Paper beats Rock")
+    }
+} else if (humanChoice = "paper") {
+    if (computerChoice = "scissors") {
+        computerScore += 1
+        console.log("You Lose! Scissors beats Paper")
+    }
+    if (computerChoice = "rock") {
+        humanScore += 1
+        console.log("You Win! Paper beats Rock")
+    }
+} else if (humanChoice = "scissors") {
+    if (computerChoice = "paper") {
+        humanScore += 1
+        console.log("You Win! Scissors beats Paper")
+    }else if (computerChoice = "rock") {
+        computerScore += 1
+        console.log("You Lose! Rock beats Scissors")
+    }
+}
+
+
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection,computerSelection);
