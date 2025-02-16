@@ -1,8 +1,7 @@
 let humanScore = 0
 let computerScore = 0
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+playGame()
 
 
 //function needs to play 5 rounds, display and update scores and show winner at the end 
@@ -45,56 +44,82 @@ function getHumanChoice() {
 }
 
 
-function playRound(humanChoice, computerChoice) {
-    if (humanChoice == "rock") {
-        switch(computerChoice) {
-            case "scissors":
-                humanScore += 1
-                console.log("Computer chose " + computerChoice)
-                console.log("You Win! Rock beats Scissors")
-                break;
-            case "paper":
-                computerScore += 1
-                console.log("Computer chose " + computerChoice)
-                console.log("You Lose! Paper beats Rock") 
-                break;
-        } 
-    } else {
-        if (humanChoice == "scissors") {
+
+
+
+
+ 
+
+ function playGame() {
+    
+    function playRound(humanChoice, computerChoice) {
+        if (humanChoice == "rock") {
             switch(computerChoice) {
-                case "paper":
+                case "scissors":
                     humanScore += 1
                     console.log("Computer chose " + computerChoice)
-                    console.log("You Win! Scissors beats Paper")
+                    console.log("You Win! Rock beats Scissors")
                     break;
-                case "rock":
+                case "paper":
                     computerScore += 1
                     console.log("Computer chose " + computerChoice)
-                    console.log("You Lose! Rock beats Scissors") 
+                    console.log("You Lose! Paper beats Rock") 
                     break;
             } 
         } else {
-            if (humanChoice == "paper") {
+            if (humanChoice == "scissors") {
                 switch(computerChoice) {
-                    case "rock":
+                    case "paper":
                         humanScore += 1
                         console.log("Computer chose " + computerChoice)
-                        console.log("You Win! Paper beats Rock")
+                        console.log("You Win! Scissors beats Paper")
                         break;
-                    case "scissors":
+                    case "rock":
                         computerScore += 1
                         console.log("Computer chose " + computerChoice)
-                        console.log("You Lose! Scissors beats Paper") 
+                        console.log("You Lose! Rock beats Scissors") 
                         break;
                 } 
+            } else {
+                if (humanChoice == "paper") {
+                    switch(computerChoice) {
+                        case "rock":
+                            humanScore += 1
+                            console.log("Computer chose " + computerChoice)
+                            console.log("You Win! Paper beats Rock")
+                            break;
+                        case "scissors":
+                            computerScore += 1
+                            console.log("Computer chose " + computerChoice)
+                            console.log("You Lose! Scissors beats Paper") 
+                            break;
+                    } 
+                } else {
+                    if (humanChoice == computerChoice) {
+                        console.log("Computer chose " + computerChoice)
+                        console.log("It's a Tie!")
+                    }
+                }
             }
+        
         }
-    
+        
     }
-    
-}
+    for (let i = 0; i < 5;i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection,computerSelection)  
+    }
+    if (humanScore > computerScore) {
+        alert("You win! Your score: " + humanScore + " Computer score: " + computerScore)
+    } else {
+        if (computerScore > humanScore) {
+            alert("You Lose! Your score: " + humanScore + " Computer score: " + computerScore)
+        } else {
+            alert("It's a tie! Your score: " + humanScore + " Computer score: " + computerScore)
+        }
+    }
+ }
 
 
-
- playRound(humanSelection,computerSelection) 
 
